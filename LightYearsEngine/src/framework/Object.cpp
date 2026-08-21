@@ -1,0 +1,33 @@
+#include "framework/Object.h"
+#include "framework/Core.h"
+#include <memory>
+
+namespace ly 
+{
+	Object::Object()
+		:mIsPendingDestroy{false}
+	{
+
+	}
+
+	Object::~Object()
+	{
+		LOG("Object Destroyed");
+	}
+
+	void Object::Destroy()
+	{
+		OnDestroy.Broadcast(this);
+		mIsPendingDestroy = true;
+	}
+
+	weak<Object> Object::GetWeakRef()
+	{
+		return weak_from_this();
+	}
+
+	weak<const Object> Object::GetWeakRef() const
+	{
+		return weak_from_this();
+	}
+}
