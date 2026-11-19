@@ -58,6 +58,7 @@ namespace ly
 		const std::optional<sf::Sprite>& GetSprite() const { return mSprite; }
 
 	private:
+		void OnActorOutOfBounds();
 		void InitializePhysics();
 		void UnInitializePhysics();
 		void UpdatePhysicsBodyTransform();

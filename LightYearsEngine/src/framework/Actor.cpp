@@ -166,11 +166,13 @@ namespace ly
 
 		if (actorPos.x < -width -allowance || actorPos.x > windowWidth + width + allowance)
 		{
+			LOG("OUT OF BOUNDS!");
 			return true;
 		}
 
 		if (actorPos.y < -height -allowance || actorPos.y > windowHeight + height + allowance)
 		{
+			LOG("OUT OF BOUNDS!");
 			return true;
 		}
 
@@ -188,6 +190,11 @@ namespace ly
 		{
 			UnInitializePhysics();
 		}
+	}
+
+	void Actor::OnActorOutOfBounds()
+	{
+		LOG("OUT OF BOUNDS!");
 	}
 
 	void Actor::OnActorBeginOverlap(Actor* other)

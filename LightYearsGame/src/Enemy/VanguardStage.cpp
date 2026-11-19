@@ -7,8 +7,8 @@ namespace ly
 {
 	VanguardStage::VanguardStage(World* world)
 		: GameStage{world},
-		mSpawnInterval{1.5f},
-		mSwitchInternal{5.f},
+		mSpawnInterval{2.0f},
+		mSwitchInternal{6.f},
 		mSpawnDistanceToEdge{100.f},
 		mLeftSpawnLoc{0.0f, 0.0f},
 		mRightSpawnLoc{0.0f, 0.0f},
@@ -32,7 +32,7 @@ namespace ly
 
 	void VanguardStage::SpawnVanguard()
 	{
-		weak<TwinBlade> newVanguard = GetWorld()->SpawnActor<TwinBlade>();
+		weak<Vanguard> newVanguard = GetWorld()->SpawnActor<Vanguard>();
 		newVanguard.lock()->SetActorLocation(mSpawnLoc);
 		++mCurrentRownVanguardCount;
 		if (mCurrentRownVanguardCount == mVanguardPerRow)

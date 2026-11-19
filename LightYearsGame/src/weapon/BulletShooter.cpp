@@ -5,14 +5,16 @@
 
 namespace ly
 {
-	BulletShooter::BulletShooter(Actor* owner, float cooldownTime, float localRotationOffset)
+	BulletShooter::BulletShooter(Actor* owner, float cooldownTime, const sf::Vector2f& localPositionOffset, float localRotationOffset)
 		: Shooter{ owner },
 		mCooldownClock{},
 		mCooldownTime{ cooldownTime },
-		mLocalRotationOffset{ localRotationOffset }
+		mLocalPositionOffset{ localPositionOffset },
+		mLocalRotationOffset{ localRotationOffset } 
 	{
 
 	}
+
 	bool BulletShooter::IsOnCooldown() const
 	{
 		if (mCooldownClock.getElapsedTime().asSeconds() > mCooldownTime)
